@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    int i, j = 0, k = 0,len,index=0;
+    char str[100], str1[30][30],str2[100];
+    printf("enter the string :");
+    scanf("%[^\n]s", str);
+    /* reads into 2d character array */
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] == ' ')
+        {
+            str1[k][j]='\0';
+            k++;
+            j=0;
+        }
+        else
+        {
+            str1[k][j]=str[i];
+            j++;
+        }
+    }
+
+    str1[k][j] = '\0';
+    /* reverses each word of a given string */
+    for (i = 0; i <= k; i++)
+    {
+        len = strlen(str1[i]);
+        for (j = len-1; j >= 0; j--)
+        {
+            str2[index]=str1[i][j];
+            index++;
+        }
+        if(i!=k)
+        {
+            str2[index]=' ';
+            index++;
+        }
+    }
+    str2[index]='\0';
+    for (i = 0; str2[i] != '\0'; i++)
+    {
+        printf("%c", str2[i]);
+    }
+    return 0;
+}
+
